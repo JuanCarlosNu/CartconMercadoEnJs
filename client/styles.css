@@ -29,3 +29,20 @@
 .card-products button :hover{
     opacity: 0.7;
 }
+
+.cart-btn{
+    position: fixed;
+    top: 90vh;
+    right: 40px;
+    background-color: rgb(25,25,25);
+    padding: 10px;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    transition: transform 0.2s ease-in-out;
+}
+.cart-btn:hover{
+    cursor: pointer;
+    opacity: .9;
+    
+}

@@ -1,4 +1,5 @@
 const shopContent = document.getElementById("shopContent");
+const cart = [];
 
 productos.forEach((product)=>{
     const content = document.createElement("div");
@@ -14,6 +15,18 @@ productos.forEach((product)=>{
     
     content.append(buyButton);
     
+    buyButton.addEventListener("click", ()=>{
+        cart.push({
+
+            id: product.id,
+            productName:product.productName,
+            price: product.price,
+            quantity: product.quantity,
+            img: product.img,
+
+        });
+        console.log(cart);
+    })
 
     
 });
