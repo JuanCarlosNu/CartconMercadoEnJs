@@ -1,21 +1,28 @@
 const modalContainer = document.getElementById("modal-container");
 const modalOverlay = document.getElementById("modal-overlay");
 
+const cartBtn = document.getElementById("cart-btn");
 
-const displayCart = ()=>{
+
+
+const displayCart = () => {
+    modalContainer.style.display= "block";
+    modalOverlay.style.display="block";
+
     //modal Header
      const modalHeader = document.createElement("div"); 
-    const modalClose = document.createElement("span");
+
+    const modalClose = document.createElement("div");
     modalClose.innerText= "❌";
     modalClose.className= "modal-close";
     modalHeader.append(modalClose);
 
     const modalTitle= document.createElement("div");
-    modalTitle.innerText= "carrio";
+    modalTitle.innerText= "Cart";
     modalTitle.className= "modal-title";
-    modalHeader.append(modalTitle);
+    modalHeader.append(modalTitle)  ;
 
     modalContainer.append(modalHeader); 
-
-
-}
+};
+ 
+cartBtn.addEventListener("click" , displayCart);
