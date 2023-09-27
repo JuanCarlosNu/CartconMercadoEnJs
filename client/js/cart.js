@@ -5,38 +5,49 @@ const cartBtn = document.getElementById("cart-btn");
 
 
 
-const displayCart = () => {
+const displayCart = () => 
+{
     modalContainer.innerHTML= "";
     modalContainer.style.display= "block";  
     modalOverlay.style.display="block";
 
     //modal Header
+
      const modalHeader = document.createElement("div"); 
 
-    const modalClose = document.createElement("div");
-    modalClose.innerText= "❌";
-    modalClose.className= "modal-close";
+    // modal Header: close button
 
-    modalHeader.append(modalClose);
+     const modalClose = document.createElement("div");
+       modalClose.innerText= "❌";
+       modalClose.className= "modal-close";
+
+     modalHeader.append(modalClose);
+
+    // function: close modal
 
     modalClose.addEventListener("click" , ()=>{
         modalContainer.style.display= "none";  
         modalOverlay.style.display="none";
 
     })
+    // Modal Header: title.
 
+     const modalTitle= document.createElement("div");
+
+       modalTitle.innerText= "Cart";
+       modalTitle.className= "modal-title";
+
+       modalHeader.append(modalTitle)  ;
+
+      modalContainer.append(modalHeader); 
+     
+      //Modal Cart
     
-
-    const modalTitle= document.createElement("div");
-    modalTitle.innerText= "Cart";
-    modalTitle.className= "modal-title";
-    modalHeader.append(modalTitle)  ;
-
-    modalContainer.append(modalHeader); 
-
-    cart.forEach((product) => {
+      cart.forEach((product) => {
         const modalBody = document.createElement("div");
+
         modalBody.className= "modal-body";
+
         modalBody.innerHTML= `
         <div class="product">
             <img class="product-img" src="${product.img}" />
@@ -55,7 +66,8 @@ const displayCart = () => {
 
         modalContainer.append(modalBody); 
 
-        /*quatity modification buttons*/
+        //quantity modification buttons
+
         const decrease = modalBody.querySelector(".quantity-btn-decrease");
         decrease.addEventListener("click" ,()=> {
             if(product.quantity !== 1){
@@ -63,24 +75,27 @@ const displayCart = () => {
             displayCart();
             }
             
-        } )
+        });
         
         const increase = modalBody.querySelector(".quantity-btn-increase");
         increase.addEventListener("click", ()=>{
         product.quantity++;
         displayCart();
-    })
-    });
-      //modal footer: total cart price
+         });
 
-      const total = cart.reduce((acc, el)=> acc + el.price * el.quantity,0)
+    });
+
+      const total = cart.reduce((acc, el)=> acc + el.price * el.quantity,0);
 
       const modalFooter = document.createElement("div");
       modalFooter.className="modal-footer"; 
-      modalFooter.innerHTML= `<div class="total-price">${total}</div>
+      modalFooter.innerHTML= `<div class="total-price">Total ${total}</div>
       
       `;
       modalContainer.append(modalFooter);
-};
- 
-cartBtn.addEventListener("click" , displayCart);
+
+    };
+
+    cartBtn.addEventListener("click" , displayCart);
+
+
