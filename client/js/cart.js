@@ -70,18 +70,17 @@ const displayCart = () => {
         product.quantity++;
         displayCart();
     })
-    
-        
-
-        const modalFooter = document.createElement("div");
-        modalFooter.className="modal-footer"; 
-        modalFooter.innerHTML= `<div class="total-price">total :)</div>
-        
-        `;
-        modalContainer.append(modalFooter);
-
-    
     });
+      //modal footer: total cart price
+
+      const total = cart.reduce((acc, el)=> acc + el.price * el.quantity,0)
+
+      const modalFooter = document.createElement("div");
+      modalFooter.className="modal-footer"; 
+      modalFooter.innerHTML= `<div class="total-price">${total}</div>
+      
+      `;
+      modalContainer.append(modalFooter);
 };
  
 cartBtn.addEventListener("click" , displayCart);
