@@ -55,10 +55,14 @@ const displayCart = () => {
 
         modalContainer.append(modalBody); 
 
+        /*quatity modification buttons*/
         const decrease = modalBody.querySelector(".quantity-btn-decrease");
         decrease.addEventListener("click" ,()=> {
-            product.quantity--;
+            if(product.quantity !== 1){
+                product.quantity--;
             displayCart();
+            }
+            
         } )
         
         const increase = modalBody.querySelector(".quantity-btn-increase");
@@ -66,6 +70,8 @@ const displayCart = () => {
         product.quantity++;
         displayCart();
     })
+    
+        
 
         const modalFooter = document.createElement("div");
         modalFooter.className="modal-footer"; 
