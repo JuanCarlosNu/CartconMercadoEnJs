@@ -16,15 +16,25 @@ productos.forEach((product)=>{
     content.append(buyButton);
     
     buyButton.addEventListener("click", ()=>{ 
-        cart.push({
+        const repeated  = cart.some((repeated)=> repeated.id === product.id); 
+        if(repeated){
+            cart.map((prod)=> {
+                if(prod.id === product.id){
+                    prod.quantity++;
+                }
+            });
+        }else{
+            cart.push({
 
-            id: product.id,
-            productName:product.productName,
-            price: product.price,
-            quantity: product.quantity,
-            img: product.img,
-
-        });
+                id: product.id,
+                productName:product.productName,
+                price: product.price,
+                quantity: product.quantity,
+                img: product.img,
+    
+            });
+        }
+        
         console.log(cart);
     })
 

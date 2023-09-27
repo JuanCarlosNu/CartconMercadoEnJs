@@ -33,6 +33,36 @@ const displayCart = () => {
     modalHeader.append(modalTitle)  ;
 
     modalContainer.append(modalHeader); 
+
+    cart.forEach((product) => {
+        const modalBody = document.createElement("div");
+        modalBody.className= "modal-body";
+        modalBody.innerHTML= `
+        <div class="product">
+            <img class="product-img" src="${product.img}" />
+            <div class="product-info"> 
+                <h4>${product.productName}</h4>
+            </div>
+            <div class="quantity">
+                <span class="quantity-btn-decrease">-</span>
+                <span class="quantity-input">${product.quantity}</span>
+                <span class="quantity-btn-increase">+</span>
+            </div>
+            <div class="price">${product.price * product.quantity} $</div>
+            <div class="delete-product">❌</div>
+        </div>
+        `;
+        modalContainer.append(modalBody); 
+
+        const modalFooter = document.createElement("div");
+        modalFooter.className="modal-footer";
+        modalFooter.innerHTML= `<div class="total-price">total :)</div>
+        
+        `;
+        modalContainer.append(modalFooter);
+
+    
+    });
 };
  
 cartBtn.addEventListener("click" , displayCart);
