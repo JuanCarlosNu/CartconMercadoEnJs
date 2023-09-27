@@ -44,18 +44,31 @@ const displayCart = () => {
                 <h4>${product.productName}</h4>
             </div>
             <div class="quantity">
-                <span class="quantity-btn-decrease">-</span>
+                <span class="quantity-btn-decrease" style="cursor:pointer">-</span>
                 <span class="quantity-input">${product.quantity}</span>
-                <span class="quantity-btn-increase">+</span>
+                <span class="quantity-btn-increase" style="cursor:pointer">+</span>
             </div>
             <div class="price">${product.price * product.quantity} $</div>
             <div class="delete-product">❌</div>
         </div>
         `;
+
         modalContainer.append(modalBody); 
 
+        const decrease = modalBody.querySelector(".quantity-btn-decrease");
+        decrease.addEventListener("click" ,()=> {
+            product.quantity--;
+            displayCart();
+        } )
+        
+        const increase = modalBody.querySelector(".quantity-btn-increase");
+        increase.addEventListener("click", ()=>{
+        product.quantity++;
+        displayCart();
+    })
+
         const modalFooter = document.createElement("div");
-        modalFooter.className="modal-footer";
+        modalFooter.className="modal-footer"; 
         modalFooter.innerHTML= `<div class="total-price">total :)</div>
         
         `;
