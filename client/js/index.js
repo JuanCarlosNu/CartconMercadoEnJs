@@ -1,6 +1,8 @@
 const shopContent = document.getElementById("shopContent");
 const cart = [];
 
+///product store layout
+
 productos.forEach((product)=>{
     const content = document.createElement("div");
     content.className="card";
@@ -14,6 +16,8 @@ productos.forEach((product)=>{
     buyButton.innerText= "Buy";
     
     content.append(buyButton);
+
+    ///add to cart functionality
     
     buyButton.addEventListener("click", ()=>{ 
         const repeated  = cart.some((repeated)=> repeated.id === product.id); 
