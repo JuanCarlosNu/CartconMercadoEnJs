@@ -83,6 +83,14 @@ const displayCart = () =>
         displayCart();
          });
 
+         //delete
+
+         const deleteProduct = modalBody.querySelector(".delete-product");
+
+         deleteProduct.addEventListener("click", ()=>{
+            deleteCartProduct(product.id);
+         });
+
     });
 
       const total = cart.reduce((acc, el)=> acc + el.price * el.quantity,0);
@@ -93,9 +101,15 @@ const displayCart = () =>
       
       `;
       modalContainer.append(modalFooter);
-
-    };
+};
 
     cartBtn.addEventListener("click" , displayCart);
+
+    const deleteCartProduct = (id)=> {
+        const findId = cart.findIndex((element)=> element.id === id);
+        console.log(findId);
+        cart.splice(findId, 1);
+        displayCart();
+    };
 
 

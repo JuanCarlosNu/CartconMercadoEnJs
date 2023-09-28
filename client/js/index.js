@@ -35,7 +35,6 @@ productos.forEach((product)=>{
             });
         }
         
-        console.log(cart);
     })
 
     
