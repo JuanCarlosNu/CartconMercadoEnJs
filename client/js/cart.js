@@ -3,6 +3,8 @@ const modalOverlay = document.getElementById("modal-overlay");
 
 const cartBtn = document.getElementById("cart-btn");
 
+const cartCounter= document.getElementById("cart-counter");
+
 
 
 const displayCart = () => 
@@ -73,6 +75,7 @@ const displayCart = () =>
             if(product.quantity !== 1){
                 product.quantity--;
             displayCart();
+            displayCartCounter();
             }
             
         });
@@ -81,6 +84,7 @@ const displayCart = () =>
         increase.addEventListener("click", ()=>{
         product.quantity++;
         displayCart();
+        displayCartCounter();
          });
 
          //delete
@@ -92,6 +96,7 @@ const displayCart = () =>
          });
 
     });
+            // total price del carrito
 
       const total = cart.reduce((acc, el)=> acc + el.price * el.quantity,0);
 
@@ -110,6 +115,17 @@ const displayCart = () =>
         console.log(findId);
         cart.splice(findId, 1);
         displayCart();
+        displayCartCounter();
     };
+    const displayCartCounter= ()=>{
+        const cartlength = cart.reduce((acc, el)=> acc + el.quantity,0);
+        console.log(cartlength);
+        cartCounter.style.display= "block";
+        cartCounter.innerText= cartlength;
+
+        
+
+
+    }
 
 

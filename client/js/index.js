@@ -21,6 +21,7 @@ productos.forEach((product)=>{
             cart.map((prod)=> {
                 if(prod.id === product.id){
                     prod.quantity++;
+                    displayCartCounter();
                 }
             });
         }else{
@@ -33,6 +34,7 @@ productos.forEach((product)=>{
                 img: product.img,
     
             });
+            displayCartCounter();
         }
         
     })

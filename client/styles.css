@@ -30,6 +30,20 @@
     opacity: 0.7;
 
 }
+.cart-counter{
+    /*display: none;*/
+     position: fixed;
+     top: 89vh;
+     right: 27px;
+     color:#fff;
+     text-align: center;
+     background-color: #ed3434;
+     padding: 4px;
+     border-radius: 50%;
+     height: 17px;
+     width: 17px;
+     font-size: 15px;
+ }
 
 .cart-btn {
     position: fixed;
@@ -41,7 +55,7 @@
     height: 25px;
     width: 25px;
     transition: transform 0.2s ease-in-out;
-    z-index: 10;
+    z-index: 0;
 }
 .cart-btn:hover{
     cursor: pointer;
@@ -167,3 +181,5 @@
         margin-top: 20px;
         margin-bottom: 10px;
     }
+
+    
