@@ -101,8 +101,10 @@ const displayCart = () =>
 
       const modalFooter = document.createElement("div");
       modalFooter.className="modal-footer"; 
-      modalFooter.innerHTML= `<div class="total-price">Total ${total}</div>
-      
+      modalFooter.innerHTML= `
+      <div class="total-price">Total ${total}</div>
+      <button class="btn-primary" id="checkout-btn">go to checkout</button>
+      <div id="button-checkout"></div>
       `;
       modalContainer.append(modalFooter);
     }else{
